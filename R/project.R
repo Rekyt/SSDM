@@ -12,7 +12,7 @@ setMethod("project", "Algorithm.SDM", function(obj, Env, ...) {
   proj = suppressWarnings(raster::predict(Env, model, fun = function(model,
                                                                      x) {
     x = as.data.frame(x)
-    for (i in seq_len(length(Env@layers))) {
+    for (i in seq_len(length(names(Env)))) {
       if (Env[[i]]@data@isfactor) {
         x[, i] = as.factor(x[, i])
         x[, i] = droplevels(x[, i])
@@ -37,7 +37,7 @@ setMethod("project", "MAXENT.SDM", function(obj, Env, ...) {
   model = get_model(obj, Env, ...)
   proj = raster::predict(Env, model, fun = function(model, x) {
     x = as.data.frame(x)
-    for (i in seq_len(length(Env@layers))) {
+    for (i in seq_len(length(names(Env)))) {
       if (Env[[i]]@data@isfactor) {
         x[, i] = as.factor(x[, i])
         x[, i] = droplevels(x[, i])

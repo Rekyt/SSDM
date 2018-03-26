@@ -295,7 +295,7 @@ modelling <- function(algorithm, Occurrences, Env, Xcol = "Longitude",
   if (is.raster(Env)) {
     Env <- stack(Env)
   }
-  if (!inherits(Env, "RasterStack")) {
+  if (!inherits(Env, "Raster")) {
     stop("Environment data set is not a raster or a raster stack")
   }
   if (verbose) {

@@ -227,7 +227,7 @@ serverWD <- function(working.directory){
     output$reso <- renderUI({if(input$GeoRes){sliderInput('reso', 'Resampling grid coefficient', 1,10,1)}})
     observeEvent(input$load2, {
       validate(
-        need(length(data$Env@layers) > 0, 'You need to load environmental variable before !'),
+        need(length(names(data$Env)) > 0, 'You need to load environmental variable before !'),
         need(length(input$Occ) > 0, 'Choose occurrences file first !')
       )
       if(is.null(input$dec)) {dec = ","} else {dec = input$dec}
@@ -247,7 +247,7 @@ serverWD <- function(working.directory){
                                     Ycol = input$Ycol,
                                     Spcol = Spcol,
                                     GeoRes = input$GeoRes,
-                                    reso = max(res(data$Env@layers[[1]])) * as.numeric(input$reso),
+                                    reso = max(res(data$Env[[1]])) * as.numeric(input$reso),
                                     verbose = FALSE,
                                     GUI = TRUE,
                                     sep = sep,

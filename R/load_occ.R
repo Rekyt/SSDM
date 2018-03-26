@@ -39,7 +39,7 @@ NULL
 #'
 #'@export
 load_occ <- function(path = getwd(), Env, file = NULL, ..., Xcol = "Longitude",
-                     Ycol = "Latitude", Spcol = NULL, GeoRes = TRUE, reso = max(res(Env@layers[[1]])),
+                     Ycol = "Latitude", Spcol = NULL, GeoRes = TRUE, reso = max(res(Env[[1]])),
                      verbose = TRUE, GUI = FALSE) {
   # Check arguments
   .checkargs(path = path, file = file, Xcol = Xcol, Ycol = Ycol, Spcol = Spcol,

@@ -155,13 +155,13 @@ load_var <- function(path = getwd(), files = NULL, format = c(".grd", ".tif",
     if (verbose) {
       cat("   normalizing continuous variable \n\n")
     }
-    for (i in seq_len(length(Env@layers))) {
+    for (i in seq_len(length(names(Env)))) {
       # For not categorical variable
       if (!Env[[i]]@data@isfactor) {
         Env[[i]] <- Env[[i]]/Env[[i]]@data@max
       }
       if (GUI) {
-        incProgress((1/length(Env@layers)/3), detail = paste(i,
+        incProgress((1/length(names(Env))/3), detail = paste(i,
                                                              "normalized"))
       }
     }
@@ -174,7 +174,7 @@ load_var <- function(path = getwd(), files = NULL, format = c(".grd", ".tif",
     path <- get("tmpdir", envir = .PkgEnv)
     if (!(file.path(path, ".rasters") %in% list.dirs(path)))
       (dir.create(paste0(path, "/.rasters")))
-    for (i in seq_len(length(Env@layers))) {
+    for (i in seq_len(length(names(Env)))) {
       Env[[i]] <- writeRaster(Env[[i]], paste0(path, "/.rasters/",
                                                names(Env[[i]])), overwrite = TRUE)
     }

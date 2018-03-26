@@ -10,7 +10,7 @@ setMethod("data.values", "Algorithm.SDM", function(obj, Env, na.rm = TRUE) {
   values <- data.frame(extract(Env, cbind(obj@data$X, obj@data$Y)))
 
   # Categorical variables as factor
-  for (i in seq_len(length(Env@layers))) {
+  for (i in seq_len(length(names(Env)))) {
     if (Env[[i]]@data@isfactor) {
       col <- which(names(values) == Env[[i]]@data@names)
       values[, col] <- as.factor(values[, col])
@@ -27,7 +27,7 @@ setMethod("data.values", "Algorithm.SDM", function(obj, Env, na.rm = TRUE) {
 
   # NAs removing
   if (na.rm) {
-    for (i in seq_len(length(Env@layers))) {
+    for (i in seq_len(length(names(Env)))) {
       if (length(which(is.na(obj@data[i + 3]))) > 0) {
         obj@data <- obj@data[-c(which(is.na(obj@data[i + 3]))),
                              ]
