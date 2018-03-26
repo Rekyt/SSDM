@@ -1,3 +1,5 @@
+context("Check ensemble function")
+
 test_that('ensemble function', {
   data(Env)
   data(Occurrences)

@@ -1,3 +1,5 @@
+context("Check stack modelling function")
+
 test_that('stack modelling function', {
   data(Env)
   data(Occurrences)

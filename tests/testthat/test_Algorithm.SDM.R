@@ -1,3 +1,5 @@
+context("Check modelling function")
+
 test_that("modelling works", {
   model <- Algorithm.SDM("GLM")
   model@name <- paste0("test", "GLM", ".SDM")

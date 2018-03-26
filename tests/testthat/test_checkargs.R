@@ -1,3 +1,5 @@
+context("Check checkargs function")
+
 #### Xpcol ####
 test_that('Xcol argument checking works',{
   expect_error(.checkargs(Xcol = 1))

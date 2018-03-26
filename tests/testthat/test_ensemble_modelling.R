@@ -1,3 +1,5 @@
+context("Check ensemble modelling function")
+
 test_that('ensemble modelling function', {
   data(Env)
   data(Occurrences)

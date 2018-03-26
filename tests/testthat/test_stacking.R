@@ -1,3 +1,5 @@
+context("Check stacking function")
+
 test_that('stacking function', {
   data(Env)
   data(Occurrences)

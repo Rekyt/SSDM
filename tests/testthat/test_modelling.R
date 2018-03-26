@@ -1,3 +1,5 @@
+context("Check modelling function")
+
 test_that('modelling function', {
   data(Env)
   data(Occurrences)
